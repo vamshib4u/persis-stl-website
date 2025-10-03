@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persis Indian Grill - Authentic Indian Cuisine in O'Fallon & Ballwin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8e1; /* Light cream for warm, rich feel */
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #8B0000, #ff8c00); /* Maroon to orange for logo-inspired vibrant theme */
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+            /* Upload your logo image as 'logo.png' and place it in the same folder as this HTML */
+        }
+        header h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            border: 2px solid #ffeaa7;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .highlight h2 {
+            color: #8B0000; /* Maroon accent */
+            margin: 0;
+            font-size: 1.6rem;
+        }
+        .locations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .location {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .location:hover {
+            transform: translateY(-5px);
+        }
+        .location h3 {
+            color: #8B0000; /* Maroon */
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .location p {
+            margin-bottom: 1rem;
+        }
+        .ordering-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B0000, #ff8c00); /* Logo-inspired gradient */
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 1rem 0;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .ordering-link:hover {
+            background: linear-gradient(135deg, #660000, #e67e00);
+        }
+        .delivery-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .delivery-btn {
+            background: #ff8c00; /* Orange accent */
+            color: white;
+            padding: 0.6rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+            display: block;
+        }
+        .delivery-btn:hover {
+            background: #e67e00;
+        }
+        .services {
+            background: #fff3e0; /* Warm peach */
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .specials {
+            background: #fff3e0;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem;
+        }
+        .specials h2 {
+            color: #8B0000; /* Maroon */
+            font-size: 1.8rem;
+        }
+        .specials-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        footer {
+            background: #8B0000; /* Maroon footer */
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        @media (min-width: 769px) {
+            header h1 { font-size: 2.5rem; }
+            .location { width: 300px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .locations { flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; }
+            .location { max-width: 100%; width: auto; }
+            .highlight { margin: 1rem; padding: 1rem; }
+            .specials { margin: 1rem; padding: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            .logo { max-width: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Persis Indian Grill Logo" class="logo">
+        <h1>🍛 Persis Indian Grill 🍛</h1>
+        <p>Authentic Flavors of India</p>
+    </header>
+
+    <div class="highlight">
+        <h2>🌟 Proudly Located in 2 Amazing Spots! 🌟</h2>
+        <p>Experience the best of Indian cuisine at our O'Fallon and Ballwin locations. Fresh, flavorful, and full of tradition!</p>
+    </div>
+
+    <div class="locations">
+        <div class="location">
+            <h3>🏠 O'Fallon Location</h3>
+            <p>1617 Bryan Rd<br>O'Fallon, MO 63368<br>(636) 294-0908</p>
+            <a href="https://www.clover.com/online-ordering/persis-indian-grill-ofallon#W1VT1YV1EH414" class="ordering-link" target="_blank">Order Online Now</a>
+            <div class="delivery-links">
+                <a href="https://www.doordash.com/store/persis-indian-grill-23074750/" class="delivery-btn" target="_blank">DoorDash</a>
+                <a href="https://www.ubereats.com/store/persis-indian-grill-dardenne-mo/1Cv5N54MWhazAcgXKUZXyA" class="delivery-btn" target="_blank">Uber Eats</a>
+                <a href="https://www.grubhub.com/restaurant/persis-indian-grill-1613-bryan-rd-dardenne-prairie/3239684" class="delivery-btn" target="_blank">GrubHub</a>
+            </div>
+            <div class="services">
+                <h4>🍽️ Banquet Hall</h4>
+                <p>Host your events in our spacious Banquet Hall! Perfect for birthdays, weddings, corporate gatherings, and more. Capacity for up to 150 guests. Inquire today!</p>
+                <p><strong>Contact for Bookings:</strong> (636) 463-9701</p>
+            </div>
+        </div>
+
+        <div class="location">
+            <h3>🏠 Ballwin Location</h3>
+            <p>Coming Soon!<br>Ballwin, MO<br>Stay tuned for opening details!</p>
+            <a href="#" class="ordering-link" onclick="alert('Square ordering link coming soon!')">Order Online (Coming Soon)</a>
+            <div class="delivery-links">
+                <a href="#" class="delivery-btn" onclick="alert('DoorDash coming soon!')">DoorDash (Coming Soon)</a>
+                <a href="#" class="delivery-btn" onclick="alert('Uber Eats coming soon!')">Uber Eats (Coming Soon)</a>
+                <a href="#" class="delivery-btn" onclick="alert('GrubHub coming soon!')">GrubHub (Coming Soon)</a>
+            </div>
+            <div class="services">
+                <h4>🍽️ Catering Services</h4>
+                <p>Catering available for all your special occasions. Delicious Indian spreads delivered to your door!</p>
+                <p><strong>Contact:</strong> (636) 463-9701</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="specials">
+        <h2>🍲 Weekly Specials 🍲</h2>
+        <div class="specials-content">
+            <p><strong>This Week's Highlight:</strong> Butter Chicken Special - Only $12.99! Served with naan and rice.</p>
+            <p>Don't miss our Biryani Night every Wednesday - $3 off all biryanis!</p>
+            <p>Sunday Lunch Buffet: $14.99 - Unlimited authentic Indian delights.</p>
+            <!-- Easy to manage: Add more specials here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Persis Indian Grill. All rights reserved.</p>
+        <div class="contact-info">
+            <p><strong>O'Fallon:</strong> 1617 Bryan Rd, O'Fallon, MO 63368 | (636) 294-0908 | persisstlcontact@gmail.com</p>
+            <p><strong>Catering & Banquet:</strong> (636) 463-9701</p>
+            <p>Follow us on <a href="https://www.facebook.com/persisstl/" style="color: #ff8c00;">Facebook</a> | <a href="https://www.instagram.com/persisstl/" style="color: #ff8c00;">Instagram</a></p>
+        </div>
+    </footer>
+</body>
+</html>
