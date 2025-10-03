@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persis Indian Grill - Authentic Indian Cuisine in O'Fallon & Ballwin</title>
+    <!-- Google tag (gtag.js) - Replace G-XXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX');
+    </script>
     <style>
         * {
             box-sizing: border-box; /* Fix alignment issues across elements */
@@ -123,6 +131,14 @@
             min-width: 250px;
             flex-shrink: 0; /* Prevent shrinking with Flexbox */
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow for better visual separation */
+            text-align: center;
+        }
+        .special-item img {
+            width: 100%;
+            height: 150px; /* Fixed height for consistency during scroll */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
         }
         .locations {
             display: flex;
@@ -247,6 +263,7 @@
                 animation-duration: 20s; /* Faster on mobile */
             }
             .map-container { height: 150px; }
+            .special-item img { height: 120px; }
         }
         @media (max-width: 480px) {
             header h1 { font-size: 1.8rem; }
@@ -335,7 +352,7 @@
 
     <script>
         // Simple JS to load content from data.json and duplicate for seamless auto-scroll
-        // Create a file called 'data.json' in the same folder with this structure:
+        // Updated data.json structure to support images:
         // {
         //   "highlight": {
         //     "title": "🌟 Proudly Located in 2 Amazing Spots! 🌟",
@@ -344,15 +361,18 @@
         //   "specials": [
         //     {
         //       "title": "Butter Chicken Special",
-        //       "description": "Only $12.99! Served with naan and rice."
+        //       "description": "Only $12.99! Served with naan and rice.",
+        //       "image": "butter-chicken.jpg"  // Upload images to repo, e.g., images/butter-chicken.jpg
         //     },
         //     {
         //       "title": "Biryani Night",
-        //       "description": "Every Wednesday - $3 off all biryanis!"
+        //       "description": "Every Wednesday - $3 off all biryanis!",
+        //       "image": "biryani.jpg"
         //     },
         //     {
         //       "title": "Sunday Lunch Buffet",
-        //       "description": "$14.99 - Unlimited authentic Indian delights."
+        //       "description": "$14.99 - Unlimited authentic Indian delights.",
+        //       "image": "buffet.jpg"
         //     }
         //   ]
         // }
@@ -367,13 +387,14 @@
                     <p>${data.highlight.text}</p>
                 `;
 
-                // Update specials section: Duplicate items for seamless loop
-                const specials = data.specials.map(special => `
+                // Update specials section: Render image if available, duplicate for loop
+                const specialsHtml = data.specials.map(special => `
                     <div class="special-item">
+                        ${special.image ? `<img src="${special.image}" alt="${special.title}">` : ''}
                         <p><strong>${special.title}:</strong> ${special.description}</p>
                     </div>
                 `).join('');
-                document.getElementById('specials-content').innerHTML = specials + specials; // Duplicate for infinite scroll
+                document.getElementById('specials-content').innerHTML = specialsHtml + specialsHtml; // Duplicate for infinite scroll
             })
             .catch(error => {
                 console.error('Error loading data:', error);
