@@ -15,6 +15,21 @@
     {
       "title": "Sunday Lunch Buffet",
       "description": "$19.99 for Adults and $14.99 for kids - Unlimited authentic Indian delights."
+    },
+    {
+      "title": "Tandoori Lamb Chops",
+      "description": "Sizzling October special - $19.99 for two. Marinated in yogurt and garam masala.",
+      "video": "Curry-naan.mp4"
+    },
+    {
+      "title": "Masala Chai Latte",
+      "description": "Warm up with our spiced chai - $3.99. Add a samosa for $1 more!",
+      "image": "chai-latte.jpeg"
+    },
+    {
+      "title": "Mandi Special",
+      "description": "Mandi every Tuesday and Wednesday!",
+      "image": "mandi.jpeg"
     }
   ]
 }

@@ -111,7 +111,7 @@
         }
         .specials-content {
             display: flex;
-            animation: autoScroll 30s linear infinite; /* Auto-scroll: 30s duration, linear, infinite loop */
+            animation: autoScroll 40s linear infinite; /* Slower for more items: 40s duration */
             gap: 1rem;
             padding: 1rem 0;
             width: max-content; /* Ensure full width for scroll */
@@ -136,6 +136,13 @@
         .special-item img {
             width: 100%;
             height: 150px; /* Fixed height for consistency during scroll */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+        .special-item video {
+            width: 100%;
+            height: 150px; /* Fixed height to match images */
             object-fit: cover;
             border-radius: 5px;
             margin-bottom: 0.5rem;
@@ -171,6 +178,22 @@
         }
         .location p {
             margin-bottom: 1rem;
+        }
+        .phone-link {
+            color: #ff8c00; /* Orange accent for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+        .email-link {
+            color: #8B0000; /* Maroon for email */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .email-link:hover {
+            text-decoration: underline;
         }
         .map-container {
             height: 200px;
@@ -260,10 +283,10 @@
             .location { max-width: 100%; width: auto; }
             .highlight, .specials { margin: 1rem; padding: 1rem; }
             .specials-content { 
-                animation-duration: 20s; /* Faster on mobile */
+                animation-duration: 30s; /* Adjusted for mobile with more items */
             }
             .map-container { height: 150px; }
-            .special-item img { height: 120px; }
+            .special-item img, .special-item video { height: 120px; }
         }
         @media (max-width: 480px) {
             header h1 { font-size: 1.8rem; }
@@ -292,7 +315,7 @@
         <!-- Dynamic content will be inserted here -->
     </div>
 
-    <!-- Moved Weekly Specials to Top (after highlight) for better visibility -->
+    <!-- Weekly Specials with Auto-Scroll for More Items (Images + Videos) -->
     <div class="specials">
         <h2>🍲 Weekly Specials 🍲</h2>
         <!-- Dynamic content will be inserted here (duplicated for seamless auto-scroll) -->
@@ -304,7 +327,7 @@
     <div class="locations">
         <div class="location">
             <h3>🏠 O'Fallon Location</h3>
-            <p>1617 Bryan Rd<br>O'Fallon, MO 63368<br>(636) 294-0908</p>
+            <p>1617 Bryan Rd<br>O'Fallon, MO 63368<br><a href="tel:+16362940908" class="phone-link">(636) 294-0908</a></p>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3259.99!2d-90.698!3d38.796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b5f4f4f4f4f4%3A0x1234567890abcdef!2s1617%20Bryan%20Rd%2C%20O%27Fallon%2C%20MO%2063368!5e0!3m2!1sen!2sus!4v1727990000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -317,7 +340,7 @@
             <div class="services">
                 <h4>🍽️ Banquet Hall</h4>
                 <p>Host your events in our spacious Banquet Hall! Perfect for birthdays, weddings, corporate gatherings, and more. Capacity for up to 150 guests. Inquire today!</p>
-                <p><strong>Contact for Bookings:</strong> (636) 463-9701</p>
+                <p><strong>Contact for Bookings:</strong> <a href="tel:+16364639701" class="phone-link">(636) 463-9701</a></p>
             </div>
         </div>
 
@@ -336,7 +359,7 @@
             <div class="services">
                 <h4>🍽️ Catering Services</h4>
                 <p>Catering available for all your special occasions. Delicious Indian spreads delivered to your door!</p>
-                <p><strong>Contact:</strong> (636) 463-9701</p>
+                <p><strong>Contact:</strong> <a href="tel:+16364639701" class="phone-link">(636) 463-9701</a></p>
             </div>
         </div>
     </div>
@@ -344,15 +367,15 @@
     <footer>
         <p>&copy; 2025 Persis Indian Grill. All rights reserved.</p>
         <div class="contact-info">
-            <p><strong>O'Fallon:</strong> 1617 Bryan Rd, O'Fallon, MO 63368 | (636) 294-0908 | persisstlcontact@gmail.com</p>
-            <p><strong>Catering & Banquet:</strong> (636) 463-9701</p>
+            <p><strong>O'Fallon:</strong> 1617 Bryan Rd, O'Fallon, MO 63368 | <a href="tel:+16362940908" class="phone-link">(636) 294-0908</a> | <a href="mailto:persisstlcontact@gmail.com" class="email-link">persisstlcontact@gmail.com</a></p>
+            <p><strong>Catering & Banquet:</strong> <a href="tel:+16364639701" class="phone-link">(636) 463-9701</a></p>
             <p>Follow us on <a href="https://www.facebook.com/persisstl/" style="color: #ff8c00;">Facebook</a> | <a href="https://www.instagram.com/persisstl/" style="color: #ff8c00;">Instagram</a></p>
         </div>
     </footer>
 
     <script>
         // Simple JS to load content from data.json and duplicate for seamless auto-scroll
-        // Updated data.json structure to support images:
+        // Updated data.json structure to support more specials with images/videos:
         // {
         //   "highlight": {
         //     "title": "🌟 Proudly Located in 2 Amazing Spots! 🌟",
@@ -362,21 +385,36 @@
         //     {
         //       "title": "Butter Chicken Special",
         //       "description": "Only $12.99! Served with naan and rice.",
-        //       "image": "butter-chicken.jpg"  // Upload images to repo, e.g., images/butter-chicken.jpg
+        //       "image": "butter-chicken.jpg"  // Or "video": "butter-chicken.mp4"
         //     },
         //     {
         //       "title": "Biryani Night",
         //       "description": "Every Wednesday - $3 off all biryanis!",
-        //       "image": "biryani.jpg"
+        //       "video": "biryani-clip.mp4"  // Upload MP4s to repo
         //     },
         //     {
         //       "title": "Sunday Lunch Buffet",
         //       "description": "$14.99 - Unlimited authentic Indian delights.",
         //       "image": "buffet.jpg"
+        //     },
+        //     {
+        //       "title": "Tandoori Mix Grill",
+        //       "description": "Sizzling platter for two - $18.99!",
+        //       "video": "tandoori.mp4"
+        //     },
+        //     {
+        //       "title": "Mango Lassi Delight",
+        //       "description": "Refresh with our creamy lassi - $4.99.",
+        //       "image": "lassi.jpg"
+        //     },
+        //     {
+        //       "title": "Veggie Biryani",
+        //       "description": "Healthy twist on classic - $11.99.",
+        //       "image": "veggie-biryani.jpg"
         //     }
         //   ]
         // }
-        // Edit data.json on GitHub to update without touching HTML!
+        // Edit data.json on GitHub to update without touching HTML! Videos auto-play muted/loop.
 
         fetch('data.json')
             .then(response => response.json())
@@ -387,18 +425,29 @@
                     <p>${data.highlight.text}</p>
                 `;
 
-                // Update specials section: Render image if available, duplicate for loop
-                const specialsHtml = data.specials.map(special => `
-                    <div class="special-item">
-                        ${special.image ? `<img src="${special.image}" alt="${special.title}">` : ''}
-                        <p><strong>${special.title}:</strong> ${special.description}</p>
-                    </div>
-                `).join('');
+                // Update specials section: Render image/video if available, duplicate for loop
+                const specialsHtml = data.specials.map(special => {
+                    let mediaHtml = '';
+                    if (special.image) {
+                        mediaHtml = `<img src="${special.image}" alt="${special.title}">`;
+                    } else if (special.video) {
+                        mediaHtml = `<video autoplay muted loop playsinline>
+                            <source src="${special.video}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>`;
+                    }
+                    return `
+                        <div class="special-item">
+                            ${mediaHtml}
+                            <p><strong>${special.title}:</strong> ${special.description}</p>
+                        </div>
+                    `;
+                }).join('');
                 document.getElementById('specials-content').innerHTML = specialsHtml + specialsHtml; // Duplicate for infinite scroll
             })
             .catch(error => {
                 console.error('Error loading data:', error);
-                // Fallback content if data.json fails to load
+                // Fallback content if data.json fails to load (with placeholders)
                 document.getElementById('highlight-section').innerHTML = `
                     <h2>🌟 Proudly Located in 2 Amazing Spots! 🌟</h2>
                     <p>Experience the best of Indian cuisine at our O'Fallon and Ballwin locations. Fresh, flavorful, and full of tradition!</p>
@@ -412,6 +461,15 @@
                     </div>
                     <div class="special-item">
                         <p><strong>Sunday Lunch Buffet:</strong> $14.99 - Unlimited authentic Indian delights.</p>
+                    </div>
+                    <div class="special-item">
+                        <p><strong>Tandoori Mix Grill:</strong> Sizzling platter for two - $18.99!</p>
+                    </div>
+                    <div class="special-item">
+                        <p><strong>Mango Lassi Delight:</strong> Refresh with our creamy lassi - $4.99.</p>
+                    </div>
+                    <div class="special-item">
+                        <p><strong>Veggie Biryani:</strong> Healthy twist on classic - $11.99.</p>
                     </div>
                 `;
                 document.getElementById('specials-content').innerHTML = fallbackSpecials + fallbackSpecials; // Duplicate
